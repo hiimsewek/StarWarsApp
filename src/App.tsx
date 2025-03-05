@@ -1,5 +1,13 @@
+import { Header } from "components";
+import { AppRouter } from "router";
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <>
+      <Header />
+      <AppRouter />
+    </>
+  );
 };
 
 export default App;
