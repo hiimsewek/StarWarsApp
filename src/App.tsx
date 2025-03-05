@@ -1,4 +1,4 @@
-import { Header } from "components";
+import { Footer, Header } from "components";
 import { AppRouter } from "router";
 
 const App = () => {
@@ -6,6 +6,7 @@ const App = () => {
     <>
       <Header />
       <AppRouter />
+      <Footer />
     </>
   );
 };
