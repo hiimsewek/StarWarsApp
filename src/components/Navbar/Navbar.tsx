@@ -16,7 +16,16 @@ const navlinks = [
 ];
 
 const Navbar = () => {
-  const { isDesktop, isOpened, location, navOpened, showOverlay, toggleNav } = useNavbar();
+  const {
+    isDesktop,
+    isOpened,
+    location,
+    navOpened,
+    showOverlay,
+    toggleNav,
+    listItemAnimationState,
+    listItemInitialState,
+  } = useNavbar();
 
   return (
     <>
@@ -28,11 +37,17 @@ const Navbar = () => {
 
       <StyledNavContainer $isOpened={isOpened}>
         <StyledNavList>
-          {navlinks.map((link) => {
+          {navlinks.map((link, i) => {
             const isActive = location.pathname === link.href;
 
             return (
-              <StyledListItem key={link.href} $linkActive={isActive}>
+              <StyledListItem
+                key={link.href}
+                $linkActive={isActive}
+                initial={listItemInitialState}
+                whileInView={listItemAnimationState}
+                transition={{ duration: 0.3, delay: i * 0.1 }}
+              >
                 <Link to={link.href} onClick={toggleNav}>
                   {link.name}
                 </Link>

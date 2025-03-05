@@ -1,9 +1,10 @@
+import { motion } from "motion/react";
 import styled from "styled-components";
 
 export const StyledIconContainer = styled.div`
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   font-size: var(--iconSize);
   z-index: 999;
 
@@ -48,10 +49,10 @@ export const StyledNavList = styled.ul`
   }
 `;
 
-export const StyledListItem = styled.li<{ $linkActive: boolean }>`
+export const StyledListItem = styled(motion.li)<{ $linkActive: boolean }>`
   font-size: 1.4rem;
   font-weight: ${(props) => (props.$linkActive ? "bold" : "normal")};
-  margin: 20px 0 0 0;
+  margin: 0 0 20px 0;
 
   @media (${({ theme: { breakpoints } }) => breakpoints.xl}) {
     margin: 0 0 0 40px;

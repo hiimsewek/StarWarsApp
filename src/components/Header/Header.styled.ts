@@ -9,9 +9,10 @@ export const StyledHeaderContainer = styled.header<{ $isScrolled: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 20px;
   background-color: ${(props) => (props.$isScrolled ? props.theme.colors.black : "transparent")};
   transition: background-color 0.3s ease-in-out;
+  z-index: 10;
 
   @media (${({ theme: { breakpoints } }) => breakpoints.xl}) {
     padding: 0 80px;

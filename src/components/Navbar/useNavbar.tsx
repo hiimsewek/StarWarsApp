@@ -25,7 +25,21 @@ const useNavbar = () => {
     }
   }, [isDesktop, navOpened]);
 
-  return { isDesktop, navOpened, toggleNav, location, showOverlay, isOpened };
+  const listItemInitialState = !isDesktop && { opacity: 0, transform: "translateX(-50px)" };
+  const listItemAnimationState = !isDesktop
+    ? { opacity: 1, transform: "translateX(0)" }
+    : undefined;
+
+  return {
+    isDesktop,
+    navOpened,
+    toggleNav,
+    location,
+    showOverlay,
+    isOpened,
+    listItemInitialState,
+    listItemAnimationState,
+  };
 };
 
 export default useNavbar;
