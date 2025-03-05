@@ -1,11 +1,13 @@
-import { Footer, Header } from "components";
+import { Footer, Header, PageWrapper } from "components";
 import { AppRouter } from "router";
 
 const App = () => {
   return (
     <>
       <Header />
-      <AppRouter />
+      <PageWrapper>
+        <AppRouter />
+      </PageWrapper>
       <Footer />
     </>
   );
