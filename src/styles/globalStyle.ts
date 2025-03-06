@@ -23,6 +23,7 @@ export const GlobalStyle = createGlobalStyle`
   div#root {
     display: flex;
     flex-direction: column;
+    width: 100vw;
     min-height: 100vh;
     background-color: ${({ theme: { colors } }) => colors.gray800};
     color: ${({ theme: { colors } }) => colors.white};
