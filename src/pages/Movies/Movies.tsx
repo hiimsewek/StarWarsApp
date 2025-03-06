@@ -1,11 +1,16 @@
 import { CenterContainer, MainContentWrapper, Searchbar, Spinner } from "components";
 import { useDebounce } from "hooks";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { useGetMoviesQuery } from "services/starWars";
 import { MovieList } from "./components";
 import { getMoviesDataWithPoster } from "utils/apiHelpers";
+import { APP_TITLE } from "constants/appDetails";
 
 const Movies = () => {
+  useLayoutEffect(() => {
+    document.title = `${APP_TITLE} | Movies`;
+  }, []);
+
   const [searchValue, setSearchValue] = useState("");
 
   const searchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
