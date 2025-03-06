@@ -14,3 +14,7 @@ export type Movie = {
   url: string;
   vehicles: string[];
 };
+
+export type MovieWithPoster = Movie & {
+  poster: string;
+};
