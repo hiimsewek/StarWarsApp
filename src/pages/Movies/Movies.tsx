@@ -1,7 +1,9 @@
-import { CenterContainer, MainContentWrapper, Searchbar } from "components";
+import { CenterContainer, MainContentWrapper, Searchbar, Spinner } from "components";
 import { useDebounce } from "hooks";
 import { useState } from "react";
 import { useGetMoviesQuery } from "services/starWars";
+import { MovieList } from "./components";
+import { getMoviesDataWithPoster } from "utils/apiHelpers";
 
 const Movies = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -14,13 +16,16 @@ const Movies = () => {
 
   const { data, isLoading, isError } = useGetMoviesQuery(debouncedValue);
 
-  const results = data?.results;
+  const results = data?.results || [];
+  const moviesWithPosters = getMoviesDataWithPoster(results);
 
   return (
     <MainContentWrapper>
       <CenterContainer>
         <Searchbar value={searchValue} onChange={searchHandler} />
       </CenterContainer>
+      {isLoading && <Spinner />}
+      {results && <MovieList data={moviesWithPosters} />}
     </MainContentWrapper>
   );
 };
