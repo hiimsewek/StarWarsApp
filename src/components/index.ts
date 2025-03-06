@@ -6,3 +6,4 @@ export { PageWrapper } from "./PageWrapper";
 export { MainContentWrapper } from "./MainContentWrapper";
 export { Searchbar } from "./Searchbar";
 export { CenterContainer } from "./CenterContainer";
+export { Spinner } from "./Spinner";
