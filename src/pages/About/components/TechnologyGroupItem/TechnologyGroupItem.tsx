@@ -13,11 +13,14 @@ type TechnologyItemProps = {
 };
 
 const TechnologyItem = ({ group, image, reversed, translateValue }: TechnologyItemProps) => {
+  const animation = { opacity: 1, transform: "translateX(0)" };
+
   return (
     <StyledGroupContainer
       $reversed={reversed}
       initial={{ opacity: 0, transform: `translateX(${translateValue}px)` }}
-      whileInView={{ opacity: 1, transform: "translateX(0)" }}
+      animate={animation}
+      whileInView={animation}
       transition={{ duration: 1 }}
       viewport={{ once: true }}
     >
