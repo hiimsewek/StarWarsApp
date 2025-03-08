@@ -7,7 +7,7 @@ import TESBPoster from "assets/posters/The Empire Strikes Back.jpg";
 import TPMPoster from "assets/posters/The Phantom Menace.jpg";
 import PlaceholderPoster from "assets/posters/placeholder-poster.jpg";
 
-const getPoster = (title: string) => {
+export const getPoster = (title: string) => {
   switch (title) {
     case "A New Hope":
       return ANHPoster;
