@@ -1,4 +1,10 @@
-import { CenterContainer, MainContentWrapper, Searchbar, Spinner } from "components";
+import {
+  CenterContainer,
+  FallbackScreen,
+  MainContentWrapper,
+  Searchbar,
+  Spinner,
+} from "components";
 import { useDebounce } from "hooks";
 import { useLayoutEffect, useState } from "react";
 import { useGetMoviesQuery } from "services/starWars";
@@ -21,6 +27,10 @@ const Movies = () => {
 
   const { data, isLoading, isError } = useGetMoviesQuery(debouncedValue);
 
+  if (isError) {
+    return <FallbackScreen type="error" />;
+  }
+
   const results = data?.results || [];
   const moviesWithPosters = getMoviesDataWithPoster(results);
 
@@ -30,7 +40,7 @@ const Movies = () => {
         <Searchbar value={searchValue} onChange={searchHandler} />
       </CenterContainer>
       {isLoading && <Spinner />}
-      {results && <MovieList data={moviesWithPosters} />}
+      {results.length > 0 && <MovieList data={moviesWithPosters} />}
     </MainContentWrapper>
   );
 };

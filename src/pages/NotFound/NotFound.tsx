@@ -1,5 +1,7 @@
+import { FallbackScreen } from "components";
+
 const NotFound = () => {
-  return <div>NotFound</div>;
+  return <FallbackScreen type="notFound" />;
 };
 
 export default NotFound;
