@@ -8,7 +8,7 @@ import {
 import { useDebounce } from "hooks";
 import { useLayoutEffect, useState } from "react";
 import { useGetMoviesQuery } from "services/starWars";
-import { MovieList } from "./components";
+import { FallbackText, MovieList } from "./components";
 import { getMoviesDataWithPoster } from "utils/apiHelpers";
 import { APP_TITLE } from "constants/appDetails";
 
@@ -31,6 +31,8 @@ const Movies = () => {
     return <FallbackScreen type="error" />;
   }
 
+  const showFallbackText = data?.results && data.results.length === 0;
+
   const results = data?.results || [];
   const moviesWithPosters = getMoviesDataWithPoster(results);
 
@@ -41,6 +43,7 @@ const Movies = () => {
       </CenterContainer>
       {isLoading && <Spinner />}
       {results.length > 0 && <MovieList data={moviesWithPosters} />}
+      {showFallbackText && <FallbackText>No data found</FallbackText>}
     </MainContentWrapper>
   );
 };
