@@ -8,13 +8,6 @@ type MoviesResponse = {
   results: Movie[];
 };
 
-type MovieResponse = {
-  count: number;
-  next: boolean | null;
-  previous: boolean | null;
-  results: Movie;
-};
-
 export const starWarsApi = createApi({
   reducerPath: "starWarsApi",
   baseQuery: fetchBaseQuery({ baseUrl: "https://swapi.dev/api/" }),
@@ -25,7 +18,7 @@ export const starWarsApi = createApi({
         else return `films/?search=${searchFilter}`;
       },
     }),
-    getMovie: build.query<MovieResponse, number>({
+    getMovie: build.query<Movie, number>({
       query: (id: number) => `films/${id}`,
     }),
   }),
