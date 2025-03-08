@@ -25,10 +25,12 @@ const useNavbar = () => {
     }
   }, [isDesktop, navOpened]);
 
-  const listItemInitialState = !isDesktop && { opacity: 0, transform: "translateX(-50px)" };
-  const listItemAnimationState = !isDesktop
-    ? { opacity: 1, transform: "translateX(0)" }
-    : undefined;
+  const endState = { opacity: 1, transform: "translateX(0)" };
+
+  const listItemInitialState = !isDesktop
+    ? { opacity: 0, transform: "translateX(-50px)" }
+    : endState;
+  const listItemAnimationState = endState;
 
   return {
     isDesktop,
