@@ -8,3 +8,4 @@ export { Searchbar } from "./Searchbar";
 export { CenterContainer } from "./CenterContainer";
 export { Spinner } from "./Spinner";
 export { FallbackScreen } from "./FallbackScreen";
+export { ScrollToTop } from "./ScrollToTop";
